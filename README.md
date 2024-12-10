@@ -3,14 +3,14 @@
 # Ponteiros 
 - Armazenam o **endereço** da **variavel** do tipo especificado.
 #### Ex:
-    ```c
+```c
     int *ptr; 
     int var = 10;
     ptr = &var;
     print("Endereço de ptr %d", &ptr);
     print("Endereço da variavel %d", ptr);
     print("Valor da variavel acessado pelo ponteiro! %i", *ptr);
-    ```
+```
 O **ptr** e um ponteiro que armazena o endereço da variavel **var** = 10
 - Ponteiros podem receber qualquer tipo primitivo
     - **int** 
@@ -20,7 +20,7 @@ O **ptr** e um ponteiro que armazena o endereço da variavel **var** = 10
 
 - Podem tambem ser acessados por **strutcs** ou tambem **vetores**
 #### Ex: Usando structs
-    ```c
+```c
         struct DT_ALUNO {
             char nome[80];
             float nota;
@@ -32,25 +32,25 @@ O **ptr** e um ponteiro que armazena o endereço da variavel **var** = 10
         scanf("%s", &ptr->nome);
         printf("Digite a nota do aluno : ");
         scanf("%f", &ptr->nota);
-    ```
+```
 - Ponteiros tambem podem ser passados como **parametros** e tambem **retornados** em **funções**
 #### Ex:
-    ```c
+```c
         int* calc(int *ptrValor){
             *ptrValor = *ptrValor * 10;
             return ptrValor;
         }
-    ```
+```
 - Obs: **Vetores** podem ser **representados** como **ponteiros**
 #### Ex:
-    ```c
+```c
         vetor[5] = {1,2,3,4,5};
         printf("\n%ld %d\n",x, *x );
         printf("\n%ld %d\n",x+1, *(x+1));
         printf("\n%ld %d\n",x+2, *(x+2));
         printf("\n%ld %d\n",x+3, *(x+3));
         printf("\n%ld %d\n",x+4, *(x+4));
-    ```
+```
 
 # Alocação dinamica de memoria de Memoria
 
