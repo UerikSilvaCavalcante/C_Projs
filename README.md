@@ -122,5 +122,97 @@ O **ptr** e um ponteiro que armazena o endereço da variavel **var** = 10
     p = (char *)realloc(o, 24);
 ```
 
+# Alocação de memoria dinamica com vetro e matriz
+- Criar um vetor dinamico (ou seja que possa se adequar ao tamanho desejado pelo usuario)
+#### Ex:
+```c
+    struct produto {
+        char nome[80];
+        float preco;
+    }
 
-    
+    int n, i;
+    printf("Digite a quantidade de produtos desejado");
+    scanf("%i", &n);
+    struct produto *ptrProduto = (struct produto *)malloc(n * sizeof(struct     produto)). // Cria um vetor do tipo da struct produto com o tamanho de n que foi passsado pelo usuario
+    for( i = 0; i < n; i++){
+        printf("Nome do Produto %i: ", i+1);
+        scanf("%s", &ptrProduto[i].nome);
+        printf("Preço do Produto %i: ", i+1);
+        scanf("%f", &ptrProduto[i].preco);
+    }
+
+    for(i = 0; i < n; i++){
+        printf("Produto %i\n", i+1);
+        printf("Nome: %s\n", ptrProduto[i].nome);
+        printf("Preço: %f\n", ptrProduto[i].preco);
+        printf("-------------------------------");
+        
+    }
+
+    free(ptrProdutos); // libera espaço na memoria
+
+```
+- Criar uma matriz dinamica tambem e possivel;
+#### Ex: 
+```c
+    int linhas, colunas , i, j;
+    int **matriz;
+    printf("Digite o numero de linhas: ");
+    scanf("%i", &linhas);
+    printf("Digite o numero de colunas: ");
+    scanf("%i", &colunas);
+
+    matriz = (int *)malloc(linhas * sizeof(int));
+    for (i = 0; i < linhas; i ++){
+        matriz[i] = (int *)malloc(colunas * sizeof(int));
+    }
+    for (i = 0; i < linhas; i ++){
+        for (j = 0; j < colunas; j++){
+            print("Digite um valor para a matriz na posicao (%i,%i): ", i +1 , j+1);
+            scanf("%i", &matriz[i][j]);
+        }
+    }
+
+```
+
+#### Ex
+```c
+    int *criaVetor(int n){
+        int *vetor = (int *)malloc((n +1) * sizeof(int));
+        if (vetor == NULL){
+            printf("Erro ao alocar memoria.\n");
+            exit(1);
+        }
+        return vetor;
+    }
+
+    void calcularFatorial(int *vetor, int n){
+        vetor[0] = 1
+        int i;
+        for(i = 1; i <= n ; i++){
+            vetor[i] = vetor[i - 1] * i;
+            // i = 1
+            // vetor[1] = vetor[1-1] * 1 = vetor[0] * 1 = 1 * 1 = 1
+            // vetor[2] = vetor[2-1] * 2 = vetor[1] * 2 = 1 * 2 = 2
+            // vetor[3] = vetor[3-1] * 3 = vetor[2] * 3 = 2 * 3 = 6
+            // vetor[4] = vetor[4-1] * 4 = vetor[3] * 4 = 6 * 4 = 24
+            // vetor[5] = vetor[5-1] * 5 = vetor[4] * 5 = 24 * 5 = 120
+        }
+    }
+
+    voi exibiVetor(int *vetor, int n){
+        int i;
+        for (i = 0; i< n; i++){
+            printf("%d = %d\n", i, vetor[i]);
+        }
+    }
+
+    int numero;
+    printf("Digite um numero para calcular seu fatorial: ");
+    scanf("%i", &numero);
+    int *fatorial = criarVetor(numero);
+    calcularFatorial(fatorial, numero);
+    exibirVetor(fatorial, numero);
+    free(fatorial);
+``` 
