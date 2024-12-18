@@ -122,7 +122,7 @@ O **ptr** e um ponteiro que armazena o endereço da variavel **var** = 10
     p = (char *)realloc(o, 24);
 ```
 
-# Alocação de memoria dinamica com vetro e matriz
+# Alocação de memoria dinamica com vetor e matriz
 - Criar um vetor dinamico (ou seja que possa se adequar ao tamanho desejado pelo usuario)
 #### Ex:
 ```c
